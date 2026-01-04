@@ -6,103 +6,73 @@
   <title>Agencia Faro Estudio Música - Startseite</title>
   <style>
     :root {
-      --color-primary: #c026d3;
-      --color-secondary: #e879f9;
-      --color-accent: #22d3ee;
-      --color-bg: #fdf4ff;
-      --color-text: #701a75;
+      --color-primary: #7c3aed;
+      --color-secondary: #8b5cf6;
+      --color-accent: #fbbf24;
+      --color-bg: #faf5ff;
+      --color-text: #1f2937;
       --color-white: #ffffff;
-      
-      --font-heading: 'Cabinet Grotesk', sans-serif;
-      --font-body: 'Satoshi', sans-serif;
-      
-      --radius-lg: 16px;
-      --radius-full: 9999px;
-      
-      --shadow-glow: 0 0 20px rgba(192, 38, 211, 0.4);
-      --shadow-card: 0 10px 30px -5px rgba(112, 26, 117, 0.05);
-      
-      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --border-radius: 8px;
+      --container-width: 1200px;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 4rem;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --glow-primary: 0 0 20px rgba(124, 58, 237, 0.4);
     }
 
-    @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&f[]=satoshi@700,500,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     body {
+      font-family: var(--font-body);
       background-color: var(--color-bg);
       color: var(--color-text);
-      font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
       font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 1rem;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-md);
     }
 
     a {
       text-decoration: none;
       color: inherit;
+      transition: all 0.3s ease;
     }
 
-    /* Button Styles */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 2rem;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      border-radius: var(--radius-full);
-      transition: var(--transition-smooth);
-      cursor: pointer;
-      border: none;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
+    img, svg {
+      max-width: 100%;
+      display: block;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-      color: white;
-      box-shadow: 0 4px 15px rgba(192, 38, 211, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-    }
-
-    .btn-outline:hover {
-      background: rgba(192, 38, 211, 0.05);
-      transform: translateY(-2px);
-    }
-
-    /* Grid Utilities */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
+
     .cards-grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 2rem;
     }
+
     .cards-grid-4 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -110,9 +80,50 @@
     }
 
     .container {
-      max-width: 1280px;
+      width: 100%;
+      max-width: var(--container-width);
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 var(--spacing-lg);
+    }
+
+    .text-center { text-align: center; }
+    .text-primary { color: var(--color-primary); }
+    .mb-4 { margin-bottom: 1rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-family: var(--font-heading);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow-primary);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+      transform: translateY(-2px);
     }
 
     @keyframes fadeIn {
@@ -125,579 +136,599 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes slideInRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
     @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
     }
 
     @keyframes floatReverse {
-      0% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(15px) scale(1.05); }
-      100% { transform: translateY(0px) scale(1); }
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(15px); }
+      100% { transform: translateY(0px); }
     }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
-      70% { box-shadow: 0 0 0 15px rgba(34, 211, 238, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-  </style>
-</head>
-<body>
-  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <!-- Mobile Toggle -->
-      <button class="mobile-toggle" aria-label="Menú abrir">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <!-- Left Links -->
-      <div class="nav-links left desktop-only">
-        <a href="ueber-uns.html" class="nav-link">Estudio</a>
-        <a href="leistungen.html" class="nav-link">Servicios</a>
-      </div>
-
-      <!-- Centered Logo -->
-      <a href="index.html" class="brand-logo">
-        <span class="logo-text">FARO</span>
-        <span class="logo-sub">ESTUDIO</span>
-      </a>
-
-      <!-- Right Links -->
-      <div class="nav-links right desktop-only">
-        <a href="kontakt.html" class="nav-link">Contacto</a>
-        <a href="impressum.html" class="nav-link">Legal</a>
-      </div>
-    </div>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu">
-      <div class="mobile-links">
-        <a href="index.html">Inicio</a>
-        <a href="ueber-uns.html">Estudio</a>
-        <a href="leistungen.html">Servicios</a>
-        <a href="kontakt.html">Contacto</a>
-        <a href="impressum.html">Legal</a>
-      </div>
-    </div>
-  </nav>
-
-  <style>
-    .main-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(253, 244, 255, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(192, 38, 211, 0.1);
-      padding: 1rem 0;
-    }
-
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .brand-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      line-height: 1;
-      z-index: 1002;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .logo-text {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 1.8rem;
-      color: var(--color-primary);
-      letter-spacing: -0.02em;
-    }
-
-    .logo-sub {
-      font-family: var(--font-body);
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      color: var(--color-text);
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3rem;
-      flex: 1;
-    }
-
-    .nav-links.left {
-      justify-content: flex-end;
-      padding-right: 4rem;
-    }
-
-    .nav-links.right {
-      justify-content: flex-start;
-      padding-left: 4rem;
-    }
-
-    .nav-link {
-      position: relative;
-      font-weight: 500;
-      color: var(--color-text);
-      font-size: 1.1rem;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--color-accent);
-      transition: width 0.3s ease, left 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-      left: 0;
-    }
-
-    /* Mobile Toggle */
-    .mobile-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1002;
-    }
-
-    .bar {
-      width: 30px;
-      height: 2px;
+    
+    /* NAVIGATION STYLES */
+    .navbar {
       background-color: var(--color-primary);
+      color: var(--color-white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-link {
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--color-accent);
+    }
+    .nav-toggle-checkbox {
+      display: none;
+    }
+    .nav-toggle-label {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      position: relative;
+      z-index: 1002;
+    }
+    .nav-toggle-label span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--color-white);
+      margin-bottom: 5px;
+      border-radius: 2px;
       transition: 0.3s ease;
     }
-
-    .mobile-menu {
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(124, 58, 237, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 6rem 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1001;
+      }
+      .nav-toggle-label {
+        display: block;
+      }
+      .nav-toggle-checkbox:checked ~ .nav-menu {
+        transform: translateX(0);
+      }
+      .nav-toggle-checkbox:checked ~ .nav-overlay {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+      }
+      .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+      }
+    }
+    .nav-overlay {
       position: fixed;
       top: 0;
-      right: 0;
+      left: 0;
       width: 100%;
-      height: 100vh;
-      background: rgba(253, 244, 255, 0.98);
-      backdrop-filter: blur(20px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-      z-index: 1001;
-    }
-
-    .mobile-menu.active {
-      transform: translateX(0);
-    }
-
-    .mobile-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .mobile-links a {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--color-text);
-    }
-
-    /* Mobile States */
-    .mobile-toggle.active .bar:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-    .mobile-toggle.active .bar:nth-child(2) {
+      height: 100%;
+      background: rgba(0,0,0,0.5);
       opacity: 0;
-    }
-    .mobile-toggle.active .bar:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
+      pointer-events: none;
+      transition: 0.3s ease;
+      z-index: 1000;
     }
 
-    @media (max-width: 900px) {
-      .desktop-only { display: none; }
-      .mobile-toggle { display: flex; }
-      .brand-logo { position: relative; left: auto; transform: none; flex: 1; align-items: center; }
-      .nav-container { justify-content: space-between; }
+    /* FOOTER STYLES */
+    .mega-footer {
+      background-color: var(--color-text);
+      color: var(--color-white);
+      padding: 4rem 0 2rem;
+      margin-top: 4rem;
     }
-  </style>
-  <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    const menu = document.querySelector('.mobile-menu');
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-  </script>
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--color-white);
+    }
+    .footer-brand p {
+      opacity: 0.7;
+      max-width: 300px;
+    }
+    .footer-links h4 {
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    .footer-links a {
+      opacity: 0.8;
+      transition: all 0.2s;
+    }
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--color-secondary);
+      padding-left: 5px;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+    .contact-highlight {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--color-white);
+      margin-top: 1rem;
+      display: block;
+    }
 
-  <!-- MAIN CONTENT -->
-  <header class="hero-section">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="badge">Estudio de Grabación Profesional</div>
-        <h1 class="hero-headline">Bienvenidos a Agencia Faro</h1>
-        <p class="hero-subline">Ya sea grande o pequeño, cada proyecto merece nuestra total atención. Compruébalo tú mismo.</p>
-        <div class="hero-actions">
-          <a href="kontakt.html" class="btn btn-primary">Contactar</a>
-          <a href="leistungen.html" class="btn btn-outline">Ver Servicios</a>
-        </div>
-      </div>
-      
-      <div class="hero-visual">
-        <div class="shape shape-circle"></div>
-        <div class="shape shape-pill"></div>
-        <div class="shape shape-square"></div>
-        <div class="glass-card-float">
-          <span class="icon">🎵</span>
-          <div class="lines">
-            <span class="line" style="width: 80%"></span>
-            <span class="line" style="width: 60%"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <style>
+    /* HERO SECTION STYLES */
     .hero-section {
-      padding: 180px 0 100px;
-      position: relative;
+      padding: 6rem 0;
       overflow: hidden;
+      position: relative;
     }
-
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 4rem;
       align-items: center;
     }
-
     .hero-content {
-      animation: slideUp 0.8s ease-out forwards;
+      z-index: 2;
+      animation: slideUp 0.8s ease-out;
     }
-
-    .badge {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: rgba(192, 38, 211, 0.1);
-      color: var(--color-primary);
-      font-weight: 700;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
     .hero-headline {
-      font-size: 4.5rem;
-      line-height: 1.05;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.1;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--color-text);
     }
-
-    .hero-subline {
+    .hero-headline span {
+      color: var(--color-primary);
+    }
+    .hero-sub {
       font-size: 1.25rem;
-      color: #666;
+      color: #4b5563;
       margin-bottom: 2.5rem;
-      max-width: 90%;
+      max-width: 600px;
     }
-
     .hero-actions {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
     }
-
-    /* Right Side Visuals */
-    .hero-visual {
+    .hero-graphic {
       position: relative;
-      height: 500px;
+      height: 400px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
-
     .shape {
       position: absolute;
-      filter: blur(40px);
-      opacity: 0.6;
-      z-index: 0;
+      border-radius: var(--border-radius);
     }
-
-    .shape-circle {
+    .shape-1 {
       width: 300px;
       height: 300px;
-      background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+      background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
       border-radius: 50%;
-      top: 10%;
-      right: 10%;
-      animation: float 8s infinite ease-in-out;
+      opacity: 0.8;
+      animation: float 6s ease-in-out infinite;
+      z-index: 1;
     }
-
-    .shape-pill {
+    .shape-2 {
       width: 200px;
-      height: 100px;
-      background: var(--color-accent);
-      border-radius: 100px;
-      bottom: 20%;
-      left: 10%;
-      animation: floatReverse 10s infinite ease-in-out;
+      height: 200px;
+      background: linear-gradient(135deg, var(--color-accent), #f59e0b);
+      border-radius: 20%;
+      top: 20px;
+      right: 20px;
+      opacity: 0.9;
+      animation: floatReverse 7s ease-in-out infinite;
+      z-index: 2;
+      mix-blend-mode: multiply;
     }
-
-    .shape-square {
+    .shape-3 {
       width: 150px;
       height: 150px;
-      background: #f0abfc;
-      transform: rotate(45deg);
-      top: 40%;
-      left: 30%;
-      border-radius: 30px;
-      animation: float 12s infinite ease-in-out 1s;
-    }
-
-    .glass-card-float {
-      position: relative;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 2rem;
-      border-radius: 24px;
-      width: 280px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      animation: float 6s infinite ease-in-out;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .glass-card-float .icon {
-      font-size: 2.5rem;
-      background: white;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 4px solid var(--color-text);
       border-radius: 50%;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      bottom: 40px;
+      left: 40px;
+      animation: float 5s ease-in-out infinite 1s;
+      z-index: 3;
     }
-
-    .glass-card-float .lines {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .glass-card-float .line {
-      height: 6px;
-      background: rgba(255,255,255,0.6);
-      border-radius: 10px;
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 992px) {
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
-      .hero-headline {
-        font-size: 3rem;
-      }
       .hero-actions {
         justify-content: center;
       }
-      .hero-subline {
-        margin: 0 auto 2.5rem;
-      }
-      .hero-visual {
-        height: 350px;
+      .hero-graphic {
+        display: none;
       }
     }
+
+    /* SECTION WRAPPER STYLES */
+    .section-wrapper {
+      padding: 5rem 0;
+    }
+    .section-header {
+      margin-bottom: 4rem;
+      max-width: 800px;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: #6b7280;
+    }
+    .bg-light {
+      background-color: #f3f4f6;
+    }
+
+    /* CARD STYLES */
+    .card {
+      background: var(--color-white);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      position: relative;
+      transition: transform 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 10px;
+      background: linear-gradient(45deg, var(--color-primary), var(--color-accent), var(--color-secondary));
+      background-size: 200% 200%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: gradientMove 3s ease infinite;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+    }
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-text);
+    }
+    .card-desc {
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
   </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">Agencia Faro Estudio Música</a>
+      
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <div class="nav-overlay"></div>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="ueber-uns.html" class="nav-link">Sobre nosotros</a></li>
+        <li><a href="leistungen.html" class="nav-link">Servicios</a></li>
+        <li><a href="kontakt.html" class="nav-link">Contacto</a></li>
+        <li><a href="impressum.html" class="nav-link">Aviso legal</a></li>
+      </ul>
+    </div>
+  </header>
 
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Nuestras Fortalezas</span>
-        <h2 class="section-title">Calidad que convence</h2>
-      </div>
-      <div class="section-body">
-        <div class="cards-grid">
-          <article class="glass-card">
-            <div class="icon-container">🎧</div>
-            <h3 class="card-title">Sonido Impecable</h3>
-            <p class="card-description">Ofrecemos una calidad de sonido que destaca en cada proyecto.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">🎤</div>
-            <h3 class="card-title">Equipo Profesional</h3>
-            <p class="card-description">Nuestro equipo está compuesto por expertos en la industria musical.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">🎼</div>
-            <h3 class="card-title">Creatividad Sin Límites</h3>
-            <p class="card-description">Innovamos constantemente para ofrecer soluciones creativas.</p>
-          </article>
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-headline">Competencia que convence</h1>
+            <p class="hero-sub">Descubre nuestra oferta y déjate convencer por nuestra calidad. Estamos ansiosos por conocerte.</p>
+            <div class="hero-actions">
+              <a href="kontakt.html" class="btn btn-primary">Solicitar ahora</a>
+              <a href="leistungen.html" class="btn btn-secondary">Ver Estudios</a>
+            </div>
+          </div>
+          <div class="hero-graphic">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Servicios</span>
-        <h2 class="section-title">Competencia en todos los ámbitos</h2>
-      </div>
-      <div class="section-body">
-        <div class="cards-grid-2">
-          <article class="glass-card">
-            <div class="icon-container">🎹</div>
-            <h3 class="card-title">Grabación</h3>
-            <p class="card-description">Capturamos el sonido con la más alta calidad para tus proyectos.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">🎛️</div>
-            <h3 class="card-title">Mezcla y Mastering</h3>
-            <p class="card-description">Mejoramos y pulimos cada detalle para un sonido perfecto.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">🎙️</div>
-            <h3 class="card-title">Producción Musical</h3>
-            <p class="card-description">Creamos música que resuena con el público.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">📀</div>
-            <h3 class="card-title">Distribución</h3>
-            <p class="card-description">Llevamos tu música a todas las plataformas digitales.</p>
-          </article>
+    <!-- SECTION: "Häufige Fragen" -->
+    <section class="section-wrapper bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-subtitle">Informado de manera transparente.</p>
+        </div>
+        <div class="section-content">
+          <!-- FAQ Content -->
+          <div class="cards-grid">
+            <article class="card">
+              <h3 class="card-title">¿Cómo puedo reservar una sesión?</h3>
+              <p class="card-desc">Puedes reservar una sesión contactándonos a través de nuestro formulario de contacto o llamando a nuestro estudio.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">¿Qué servicios ofrecen?</h3>
+              <p class="card-desc">Ofrecemos una amplia gama de servicios de grabación, mezcla y masterización para satisfacer tus necesidades musicales.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">¿Cuál es el costo de una sesión?</h3>
+              <p class="card-desc">El costo varía según el tipo de servicio y la duración de la sesión. Contáctanos para obtener un presupuesto personalizado.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">¿Puedo traer mi propio equipo?</h3>
+              <p class="card-desc">Sí, puedes traer tu propio equipo. Sin embargo, contamos con equipos de alta calidad disponibles en el estudio.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">¿Ofrecen servicios de producción musical?</h3>
+              <p class="card-desc">Sí, nuestros productores experimentados pueden ayudarte a llevar tu música al siguiente nivel con servicios de producción completos.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">¿Cómo puedo obtener más información?</h3>
+              <p class="card-desc">Para más información, no dudes en contactarnos a través de nuestro formulario de contacto o por correo electrónico.</p>
+            </article>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Así trabajamos</span>
-        <h2 class="section-title">Transparente y estructurado</h2>
-      </div>
-      <div class="section-body">
-        <div class="cards-grid">
-          <article class="glass-card">
-            <div class="icon-container">📅</div>
-            <h3 class="card-title">Planificación</h3>
-            <p class="card-description">Cada proyecto comienza con una planificación detallada.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">🔍</div>
-            <h3 class="card-title">Ejecución</h3>
-            <p class="card-description">Implementamos cada etapa con precisión y cuidado.</p>
-          </article>
-          <article class="glass-card">
-            <div class="icon-container">✅</div>
-            <h3 class="card-title">Revisión</h3>
-            <p class="card-description">Revisamos cada detalle para asegurar la máxima calidad.</p>
-          </article>
+    <!-- SECTION: "Unsere Stärken" -->
+    <section class="section-wrapper">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nuestras Fortalezas</h2>
+          <p class="section-subtitle">Buenas razones para elegirnos.</p>
+        </div>
+        <div class="section-content">
+          <div class="cards-grid-2">
+            <article class="card">
+              <div class="card-icon">🎵</div>
+              <h3 class="card-title">Calidad de Sonido</h3>
+              <p class="card-desc">Ofrecemos una calidad de sonido excepcional gracias a nuestro equipo de última generación y a nuestros ingenieros expertos.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎤</div>
+              <h3 class="card-title">Experiencia</h3>
+              <p class="card-desc">Con años de experiencia en la industria, nuestro equipo está preparado para manejar cualquier proyecto musical.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎚️</div>
+              <h3 class="card-title">Flexibilidad</h3>
+              <p class="card-desc">Nos adaptamos a tus necesidades y horarios para garantizar que tu experiencia en el estudio sea perfecta.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎧</div>
+              <h3 class="card-title">Atención Personalizada</h3>
+              <p class="card-desc">Nos aseguramos de que cada cliente reciba atención personalizada para cumplir con sus expectativas musicales.</p>
+            </article>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="content-section">
+    <!-- SECTION: "Experten für Sie" -->
+    <section class="section-wrapper bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Expertos para Ti</h2>
+          <p class="section-subtitle">Competencia y compromiso.</p>
+        </div>
+        <div class="section-content">
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-icon">👨‍🎤</div>
+              <h3 class="card-title">Productores</h3>
+              <p class="card-desc">Nuestros productores te guiarán en cada paso del proceso creativo para lograr el mejor resultado posible.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">👩‍🎨</div>
+              <h3 class="card-title">Ingenieros de Sonido</h3>
+              <p class="card-desc">Con un oído agudo para los detalles, nuestros ingenieros aseguran que cada grabación sea impecable.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎸</div>
+              <h3 class="card-title">Músicos de Sesión</h3>
+              <p class="card-desc">Disponemos de músicos de sesión talentosos para enriquecer tus proyectos con su experiencia y habilidades.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎹</div>
+              <h3 class="card-title">Compositores</h3>
+              <p class="card-desc">Nuestros compositores pueden ayudarte a crear melodías únicas que resalten tu estilo musical.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎻</div>
+              <h3 class="card-title">Arreglistas</h3>
+              <p class="card-desc">Con un enfoque creativo, nuestros arreglistas pueden transformar tus ideas en composiciones completas.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: "Bereit loszulegen?" -->
+    <section class="section-wrapper">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">¿Listo para empezar?</h2>
+          <p class="section-subtitle">Estamos ansiosos por recibir tu solicitud.</p>
+          <a href="kontakt.html" class="btn btn-primary">Contáctanos ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: "Schritt für Schritt" -->
+    <section class="section-wrapper bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Paso a Paso</h2>
+          <p class="section-subtitle">Siempre sabrás en qué etapa estás.</p>
+        </div>
+        <div class="section-content">
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-icon">📅</div>
+              <h3 class="card-title">Planificación</h3>
+              <p class="card-desc">Trabajamos contigo para planificar cada aspecto de tu proyecto musical, asegurando que todo esté en su lugar.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎙️</div>
+              <h3 class="card-title">Grabación</h3>
+              <p class="card-desc">Capturamos tus interpretaciones con la más alta calidad, utilizando equipos de última generación.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🎛️</div>
+              <h3 class="card-title">Mezcla</h3>
+              <p class="card-desc">Nuestros ingenieros mezclan tus pistas para crear un sonido cohesivo y profesional.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🔊</div>
+              <h3 class="card-title">Masterización</h3>
+              <p class="card-desc">Finalizamos tu proyecto con un proceso de masterización que garantiza que suene excelente en cualquier plataforma.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-wrapper">
+      <div class="container text-center">
+        <h2 class="section-title">Hablemos</h2>
+        <a href="kontakt.html" class="btn btn-primary">Solicitar ahora</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mega-footer">
     <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">¿Listo para empezar?</span>
-        <h2 class="section-title">Juntos encontramos la mejor solución</h2>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Nuestra Empresa</span>
-        <h2 class="section-title">Experiencia e Innovación Unidas</h2>
-      </div>
-      <div class="section-body">
-        <p>Con años de experiencia en la industria musical, combinamos tradición e innovación para ofrecer servicios de primer nivel.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">¿Te interesa?</h2>
-      </div>
-      <div class="section-body">
-        <a href="kontakt.html" class="btn btn-primary">Contactar</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER (PFLICHT - von unten kopieren) -->
-  <footer class="site-footer">
-    <div class="footer-wave">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,80C672,64,768,64,864,69.3C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-    </div>
-    
-    <div class="footer-content container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h2 class="footer-logo">Agencia Faro Estudio Música</h2>
-          <p>Sonido profesional para artistas exigentes.</p>
+          <h3>Agencia Faro Estudio Música</h3>
+          <p>Tu sonido, nuestra pasión. Llevando la producción musical al siguiente nivel desde el corazón del estudio.</p>
         </div>
         
-        <div class="footer-nav">
-          <h4>Menú</h4>
+        <div class="footer-links">
+          <h4>Navegación</h4>
           <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="ueber-uns.html">Estudio</a></li>
-            <li><a href="leistungen.html">Servicios</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-nav">
-          <h4>Legal</h4>
-          <ul>
+            <li><a href="ueber-uns.html">Sobre Nosotros</a></li>
+            <li><a href="leistungen.html">Servicios & Equipo</a></li>
             <li><a href="kontakt.html">Contacto</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
-
-        <div class="footer-contact">
+        
+        <div class="footer-links">
           <h4>Contacto</h4>
-          <a href="mailto:info@agencia-faro-estudio.com" class="footer-mail">info@agencia-faro-estudio.com</a>
+          <p>¿Listo para grabar?</p>
+          <a href="mailto:info@agencia-faro-estudio.com" class="contact-highlight">info@agencia-faro-estudio.com</a>
+          <ul>
+            <li><a href="impressum.html" style="font-size: 0.8rem; margin-top: 1rem; display:block;">Aviso Legal</a></li>
+          </ul>
         </div>
       </div>
       
@@ -706,101 +737,5 @@
       </div>
     </div>
   </footer>
-
-  <style>
-    .site-footer {
-      position: relative;
-      background-color: var(--color-text);
-      color: var(--color-bg);
-      margin-top: 4rem;
-    }
-
-    .footer-wave {
-      position: absolute;
-      top: -119px;
-      left: 0;
-      width: 100%;
-      line-height: 0;
-    }
-
-    .footer-wave svg {
-      width: 100%;
-      height: 120px;
-      fill: var(--color-text);
-    }
-
-    .footer-content {
-      position: relative;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
-    }
-
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      color: var(--color-accent);
-      margin-bottom: 1rem;
-    }
-
-    .footer-nav h4, .footer-contact h4 {
-      color: var(--color-secondary);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    .footer-nav ul {
-      list-style: none;
-    }
-
-    .footer-nav li {
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-nav a {
-      opacity: 0.7;
-      transition: opacity 0.3s, color 0.3s;
-    }
-
-    .footer-nav a:hover {
-      opacity: 1;
-      color: var(--color-accent);
-    }
-
-    .footer-mail {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 8px;
-      color: var(--color-accent);
-      transition: all 0.3s;
-    }
-
-    .footer-mail:hover {
-      background: var(--color-accent);
-      color: var(--color-text);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.5;
-    }
-
-    @media (max-width: 768px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-    }
-  </style>
 </body>
 </html>
