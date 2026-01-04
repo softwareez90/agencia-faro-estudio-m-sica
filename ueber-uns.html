@@ -5,457 +5,274 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agencia Faro Estudio Música - Sobre nosotros</title>
   <style>
-    :root {
-      --color-primary: #7c3aed;
-      --color-secondary: #8b5cf6;
-      --color-accent: #fbbf24;
-      --color-bg: #faf5ff;
-      --color-text: #1f2937;
-      --color-white: #ffffff;
-      --font-heading: 'Space Grotesk', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --border-radius: 8px;
-      --container-width: 1200px;
-      --spacing-sm: 0.5rem;
-      --spacing-md: 1rem;
-      --spacing-lg: 2rem;
-      --spacing-xl: 4rem;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      --glow-primary: 0 0 20px rgba(124, 58, 237, 0.4);
-    }
+/* === INJECTED BY CSS-GUARD === */
+:root {
+  --primary: #1d4ed8;
+  --secondary: #3b82f6;
+  --accent: #10b981;
+  --background: #eff6ff;
+  --text: #1e3a8a;
+  --font-heading: 'Raleway', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --radius: 20px;
+  --shadow-card: 0 10px 40px rgba(0,0,0,0.1);
+  --shadow-hover: 0 20px 60px rgba(29, 78, 216, 0.2);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: var(--font-body);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: var(--spacing-md);
-    }
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-    }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
 
-    img, svg {
-      max-width: 100%;
-      display: block;
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-    .container {
-      width: 100%;
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 var(--spacing-lg);
-    }
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-    .text-center { text-align: center; }
-    .text-primary { color: var(--color-primary); }
-    .mb-4 { margin-bottom: 1rem; }
+/* Grid Utility Classes (Required) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 28px;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      font-family: var(--font-heading);
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: none;
-      font-size: 1rem;
-    }
+.cards-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-      color: var(--color-white);
-    }
+.cards-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--glow-primary);
-    }
+/* Global Button Styles */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
 
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-    }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+}
 
-    .btn-secondary:hover {
-      background: var(--color-primary);
-      color: var(--color-white);
-      transform: translateY(-2px);
-    }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(29, 78, 216, 0.6);
+}
 
-    .navbar {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 1rem 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-link {
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      position: relative;
-    }
-    .nav-link:hover {
-      color: var(--color-accent);
-    }
-    .nav-toggle-checkbox {
-      display: none;
-    }
-    .nav-toggle-label {
-      display: none;
-      cursor: pointer;
-      width: 30px;
-      height: 24px;
-      position: relative;
-      z-index: 1002;
-    }
-    .nav-toggle-label span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background: var(--color-white);
-      margin-bottom: 5px;
-      border-radius: 2px;
-      transition: 0.3s ease;
-    }
-    @media (max-width: 768px) {
-      .nav-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: rgba(124, 58, 237, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 6rem 2rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 1001;
-      }
-      .nav-toggle-label {
-        display: block;
-      }
-      .nav-toggle-checkbox:checked ~ .nav-menu {
-        transform: translateX(0);
-      }
-      .nav-toggle-checkbox:checked ~ .nav-overlay {
-        opacity: 1;
-        pointer-events: all;
-      }
-      .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-      }
-      .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(2) {
-        opacity: 0;
-      }
-      .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-      }
-    }
-    .nav-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s ease;
-      z-index: 1000;
-    }
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .mega-footer {
-      background-color: var(--color-text);
-      color: var(--color-white);
-      padding: 4rem 0 2rem;
-      margin-top: 4rem;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-    .footer-brand h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--color-white);
-    }
-    .footer-brand p {
-      opacity: 0.7;
-      max-width: 300px;
-    }
-    .footer-links h4 {
-      color: var(--color-accent);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links ul {
-      list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 0.8rem;
-    }
-    .footer-links a {
-      opacity: 0.8;
-      transition: all 0.2s;
-    }
-    .footer-links a:hover {
-      opacity: 1;
-      color: var(--color-secondary);
-      padding-left: 5px;
-    }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.6;
-    }
-    .contact-highlight {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--color-white);
-      margin-top: 1rem;
-      display: block;
-    }
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
 
-    .section-wrapper {
-      padding: 5rem 0;
-    }
-    .section-header {
-      margin-bottom: 4rem;
-      max-width: 800px;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      color: var(--color-text);
-      margin-bottom: 1rem;
-    }
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: #6b7280;
-    }
-    .bg-light {
-      background-color: #f3f4f6;
-    }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    .card {
-      background: var(--color-white);
-      border-radius: var(--border-radius);
-      padding: 2.5rem;
-      position: relative;
-      transition: transform 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      z-index: 1;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 10px;
-      background: linear-gradient(45deg, var(--color-primary), var(--color-accent), var(--color-secondary));
-      background-size: 200% 200%;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      animation: gradientMove 3s ease infinite;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .card:hover::before {
-      opacity: 1;
-    }
-    .card-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: var(--color-white);
-      margin-bottom: 1.5rem;
-      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
-    }
-    .card-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-text);
-    }
-    .card-desc {
-      color: #6b7280;
-      font-size: 1rem;
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-  </style>
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Cards Grid - Fallback */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.cards-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.section {
+  padding: 4rem 0;
+}
+/* === END CSS-GUARD === */
+</style>
 </head>
 <body>
-  <!-- NAVIGATION -->
-  <header class="navbar">
+  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
+  <header class="main-header">
     <div class="container nav-container">
-      <a href="index.html" class="nav-logo">Agencia Faro</a>
+      <a href="index.html" class="logo">FARO<span class="logo-accent">ESTUDIO</span></a>
       
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="nav-toggle-label">
         <span></span>
         <span></span>
         <span></span>
       </label>
       
-      <div class="nav-overlay"></div>
-      
-      <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Inicio</a></li>
-        <li><a href="ueber-uns.html" class="nav-link">Sobre nosotros</a></li>
-        <li><a href="leistungen.html" class="nav-link">Servicios</a></li>
-        <li><a href="kontakt.html" class="nav-link">Contacto</a></li>
-        <li><a href="impressum.html" class="nav-link">Aviso legal</a></li>
-      </ul>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="ueber-uns.html" class="nav-link">El Estudio</a></li>
+          <li><a href="leistungen.html" class="nav-link">Servicios</a></li>
+          <li><a href="kontakt.html" class="nav-link btn-nav">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-  
+
   <!-- MAIN CONTENT -->
   <section class="section-wrapper">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Sobre nosotros</h2>
-        <p class="section-subtitle">Descubra quiénes somos y qué representamos.</p>
+        <div class="title-bar"></div>
+        <p class="section-subtitle">Conozca más sobre nosotros y lo que nos impulsa.</p>
       </div>
       <div class="section-content">
-        <p>En Agencia Faro Estudio Música, nos dedicamos a ofrecer servicios de producción musical de alta calidad. Nuestro estudio está equipado con tecnología de punta para garantizar que cada proyecto alcance su máximo potencial. Nos enorgullece nuestra atención al detalle y nuestra capacidad para transformar ideas en realidad sonora.</p>
-        <p>Lo que nos hace únicos es nuestra pasión por la música y nuestro compromiso con la excelencia. Creemos en el poder de la música para inspirar y conectar a las personas, y trabajamos incansablemente para ofrecer un entorno creativo y profesional donde los artistas puedan prosperar.</p>
+        <p>Agencia Faro Estudio Música es un estudio de producción musical dedicado a ofrecer la más alta calidad de sonido para artistas que buscan la excelencia. Nos destacamos por nuestro compromiso con la innovación y la creatividad, brindando un espacio donde la música cobra vida.</p>
+        <p>Nuestro estudio se caracteriza por un ambiente acogedor y profesional, equipado con tecnología de punta para satisfacer las necesidades de nuestros clientes. Creemos en la importancia de la colaboración y el respeto mutuo, lo que nos permite crear música que resuena con autenticidad y pasión.</p>
       </div>
     </div>
   </section>
 
-  <section class="section-wrapper bg-light">
+  <section class="section-wrapper">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Nuestros valores</h2>
+        <h2 class="section-title">Nuestra filosofía</h2>
+        <div class="title-bar"></div>
       </div>
       <div class="cards-grid">
-        <article class="card">
-          <div class="card-icon">🎵</div>
+        <article class="service-card">
+          <div class="icon-wrapper">
+            <span class="card-icon">🎵</span>
+          </div>
           <h3 class="card-title">Calidad</h3>
-          <p class="card-desc">Nos esforzamos por ofrecer la más alta calidad en cada proyecto, asegurando que el resultado final sea impecable.</p>
+          <p class="card-desc">Nos esforzamos por ofrecer la mejor calidad en cada proyecto, asegurando que cada nota suene perfecta.</p>
         </article>
-        <article class="card">
-          <div class="card-icon">🤝</div>
-          <h3 class="card-title">Confiabilidad</h3>
-          <p class="card-desc">Nuestros clientes confían en nosotros para cumplir con sus expectativas y entregar resultados a tiempo.</p>
+        <article class="service-card">
+          <div class="icon-wrapper">
+            <span class="card-icon">🤝</span>
+          </div>
+          <h3 class="card-title">Colaboración</h3>
+          <p class="card-desc">Creemos en el poder de trabajar juntos para crear música que inspire y conecte.</p>
         </article>
-        <article class="card">
-          <div class="card-icon">🎧</div>
+        <article class="service-card">
+          <div class="icon-wrapper">
+            <span class="card-icon">🚀</span>
+          </div>
           <h3 class="card-title">Innovación</h3>
-          <p class="card-desc">Estamos siempre a la vanguardia, utilizando las últimas tecnologías y técnicas para mejorar nuestras producciones.</p>
+          <p class="card-desc">Nos mantenemos a la vanguardia de la tecnología musical para ofrecer soluciones creativas.</p>
         </article>
-        <article class="card">
-          <div class="card-icon">🌟</div>
+        <article class="service-card">
+          <div class="icon-wrapper">
+            <span class="card-icon">🌟</span>
+          </div>
           <h3 class="card-title">Pasión</h3>
-          <p class="card-desc">La música es nuestra pasión, y eso se refleja en cada proyecto que emprendemos.</p>
+          <p class="card-desc">La música es nuestra pasión, y cada proyecto es una oportunidad para compartirla con el mundo.</p>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section-wrapper">
-    <div class="container text-center">
-      <a href="kontakt.html" class="btn btn-primary">Contáctanos</a>
+    <div class="container">
+      <div class="section-content" style="text-align: center;">
+        <a href="kontakt.html" class="btn btn-primary">Contáctanos</a>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="mega-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>Agencia Faro Estudio Música</h3>
-          <p>Tu sonido, nuestra pasión. Llevando la producción musical al siguiente nivel desde el corazón del estudio.</p>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="ueber-uns.html">Sobre Nosotros</a></li>
-            <li><a href="leistungen.html">Servicios & Equipo</a></li>
-            <li><a href="kontakt.html">Contacto</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Contacto</h4>
-          <p>¿Listo para grabar?</p>
-          <a href="mailto:info@agencia-faro-estudio.com" class="contact-highlight">info@agencia-faro-estudio.com</a>
-          <ul>
-            <li><a href="impressum.html" style="font-size: 0.8rem; margin-top: 1rem; display:block;">Aviso Legal</a></li>
-          </ul>
-        </div>
+  <!-- FOOTER (PFLICHT - von unten kopieren) -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">FARO<span class="text-accent">ESTUDIO</span></div>
+        <p class="footer-desc">Producción musical de alto nivel para artistas que buscan excelencia sonora.</p>
+        <p class="footer-brand-name">Agencia Faro Estudio Música</p>
       </div>
       
-      <div class="footer-bottom">
-        <p>&copy; 2023 Agencia Faro Estudio Música. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ueber-uns.html">Sobre Nosotros</a></li>
+          <li><a href="leistungen.html">Servicios</a></li>
+          <li><a href="kontakt.html">Contacto</a></li>
+        </ul>
       </div>
+
+      <div class="footer-legal">
+        <h3>Legal & Contacto</h3>
+        <ul>
+          <li><a href="impressum.html">Aviso Legal</a></li>
+          <li><a href="mailto:info@agencia-faro-estudio.com" class="email-link">info@agencia-faro-estudio.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Agencia Faro Estudio Música. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>
