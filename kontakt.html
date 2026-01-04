@@ -6,206 +6,338 @@
   <title>Agencia Faro Estudio Música - Kontakt</title>
   <style>
     :root {
-      --primary: #1d4ed8;
-      --secondary: #3b82f6;
-      --accent: #10b981;
-      --background: #eff6ff;
-      --text: #1e3a8a;
-      --font-heading: 'Raleway', sans-serif;
-      --font-body: 'Nunito', sans-serif;
-      --radius: 20px;
-      --shadow-card: 0 10px 40px rgba(0,0,0,0.1);
-      --shadow-hover: 0 20px 60px rgba(29, 78, 216, 0.2);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --primary: #4338ca;
+      --primary-rgb: 67, 56, 202;
+      --secondary: #6366f1;
+      --accent: #84cc16;
+      --bg-color: #eef2ff;
+      --text-color: #312e81;
+      --white: #ffffff;
+      --font-heading: 'Abril Fatface', cursive;
+      --font-body: 'Lato', sans-serif;
+      --container-width: 1200px;
+      --radius: 12px;
+      --header-height: 90px;
+      --shadow-sm: 0 4px 6px -1px rgba(67, 56, 202, 0.1);
+      --shadow-card: 0 10px 40px rgba(0,0,0,0.08);
+      --shadow-hover: 0 20px 50px rgba(67, 56, 202, 0.15);
+      --glow: 0 0 20px rgba(67, 56, 202, 0.4);
+      --transition-fast: 0.2s ease;
+      --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap');
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
 
     body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
       font-family: var(--font-body);
-      background-color: var(--background);
-      color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
-      font-weight: 700;
-      line-height: 1.2;
+      font-weight: 400;
+      line-height: 1.1;
       margin-bottom: 1rem;
     }
 
     a {
       text-decoration: none;
       color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      transition: var(--transition-fast);
     }
 
     .container {
       width: 90%;
-      max-width: 1200px;
+      max-width: var(--container-width);
       margin: 0 auto;
       padding: 0 1rem;
     }
 
-    .main-header {
-      background-color: var(--primary);
-      padding: 1rem 0;
-      position: sticky;
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2.5rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(67, 56, 202, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .site-header {
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      background: rgba(238, 242, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(67, 56, 202, 0.05);
+      display: flex;
+      align-items: center;
     }
 
     .nav-container {
-      display: flex;
+      width: 90%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+    }
+
+    .desktop-nav {
+      display: none;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
 
-    .logo {
+    @media (min-width: 992px) {
+      .desktop-nav { display: flex; }
+      .mobile-header { display: none; }
+    }
+
+    .nav-left, .nav-right {
+      flex: 1;
+      display: flex;
+      gap: 3rem;
+    }
+
+    .nav-left { justify-content: flex-end; padding-right: 3rem; }
+    .nav-right { justify-content: flex-start; padding-left: 3rem; }
+
+    .brand-logo {
       font-family: var(--font-heading);
       font-size: 1.8rem;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -1px;
-    }
-
-    .logo-accent {
-      color: var(--accent);
-    }
-
-    .nav-menu ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      align-items: center;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
     }
 
     .nav-link {
-      color: rgba(255,255,255,0.9);
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: var(--transition);
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-color);
       position: relative;
+      padding: 0.5rem 0;
     }
 
-    .nav-link:not(.btn-nav)::after {
+    .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0%;
+      bottom: 0;
+      left: 50%;
+      width: 0;
       height: 2px;
-      background-color: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--accent);
+      background: var(--accent);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
 
     .nav-link:hover::after {
       width: 100%;
     }
 
-    .btn-nav {
-      background: rgba(255,255,255,0.1);
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .btn-nav:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .nav-toggle {
-      display: none;
-    }
-
-    .nav-toggle-label {
-      display: none;
-      cursor: pointer;
-      width: 30px;
-      height: 25px;
-      flex-direction: column;
+    .mobile-header {
+      display: flex;
       justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+    }
+
+    .line {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      margin: 5px auto;
+      transition: 0.3s ease;
+    }
+
+    .hamburger.active .line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active .line:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active .line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(49, 46, 129, 0.95);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
       z-index: 1001;
     }
 
-    .nav-toggle-label span {
-      display: block;
-      height: 3px;
+    .mobile-menu.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.4s ease;
+    }
+
+    .mobile-menu a.legal-link {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-top: 2rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .mobile-menu.active a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.active a:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active a:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active a:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-menu.active a:nth-child(4) { transition-delay: 0.4s; }
+
+    .site-footer {
+      background-color: var(--white);
+      padding: 5rem 1rem 3rem;
+      text-align: center;
+      border-top: 1px solid rgba(67, 56, 202, 0.1);
+      margin-top: 5rem;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-nav a {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .footer-nav a:hover {
+      color: var(--primary);
+    }
+
+    .email-link {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .footer-legal {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
       width: 100%;
-      background-color: white;
-      border-radius: 3px;
-      transition: all 0.3s ease;
+      font-size: 0.8rem;
+      color: rgba(49, 46, 129, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    @media (max-width: 768px) {
-      .nav-toggle-label {
-        display: flex;
-      }
-
-      .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background: rgba(29, 78, 216, 0.95);
-        backdrop-filter: blur(10px);
-        padding-top: 6rem;
-        transition: right 0.3s ease;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-      }
-
-      .nav-menu ul {
-        flex-direction: column;
-        gap: 2.5rem;
-      }
-
-      .nav-link {
-        font-size: 1.5rem;
-        color: white;
-      }
-
-      #nav-toggle:checked ~ .nav-menu {
-        right: 0;
-      }
-
-      #nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
-        transform: translateY(11px) rotate(45deg);
-      }
-
-      #nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
-        opacity: 0;
-      }
-
-      #nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg);
-      }
-    }
-
-    .section-wrapper {
+    .content-section {
       padding: 6rem 0;
       position: relative;
     }
@@ -213,254 +345,189 @@
     .section-header {
       text-align: center;
       max-width: 700px;
-      margin: 0 auto 4rem auto;
+      margin: 0 auto 4rem;
     }
 
     .section-title {
-      font-size: 2.5rem;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    .title-bar {
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      margin: 0 auto 1.5rem auto;
-      border-radius: 2px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--primary);
+      margin-bottom: 1rem;
     }
 
     .section-subtitle {
       font-size: 1.1rem;
-      color: #64748b;
+      color: rgba(49, 46, 129, 0.7);
     }
-
-    .cards-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 2rem;
+    
+    .section-body {
+      animation: slideUp 0.8s ease-out;
     }
 
     .contact-form {
-      background: white;
+      background: var(--white);
       padding: 3rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow-card);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: var(--text);
-      font-family: var(--font-heading);
+      position: relative;
+      margin-bottom: 2rem;
     }
 
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       padding: 1rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
+      border: 1px solid #e0e7ff;
+      border-radius: 8px;
+      background: #f8fafc;
       font-family: var(--font-body);
       font-size: 1rem;
-      transition: var(--transition);
-      background: #f8fafc;
+      color: var(--text-color);
+      transition: 0.3s ease;
+      outline: none;
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
+    .form-group textarea:focus,
+    .form-group select:focus {
       border-color: var(--secondary);
-      background: white;
-      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
     }
 
-    .submit-btn {
-      width: 100%;
-      margin-top: 1rem;
+    .form-group label {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      color: rgba(49, 46, 129, 0.5);
+      pointer-events: none;
+      transition: 0.2s ease;
+      font-size: 1rem;
     }
 
-    .main-footer {
-      background: linear-gradient(to bottom, #1d4ed8, #0f172a);
-      color: white;
-      padding: 4rem 0 1rem 0;
-      margin-top: 4rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .footer-desc {
-      opacity: 0.8;
-      margin-bottom: 1rem;
-      max-width: 300px;
-    }
-
-    .footer-links h3, .footer-legal h3 {
-      color: var(--accent);
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .footer-links ul, .footer-legal ul {
-      list-style: none;
-    }
-
-    .footer-links li, .footer-legal li {
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-links a, .footer-legal a {
-      color: rgba(255,255,255,0.7);
-      transition: var(--transition);
-    }
-
-    .footer-links a:hover, .footer-legal a:hover {
-      color: white;
-      padding-left: 5px;
-    }
-
-    .email-link {
-      color: white !important;
-      font-weight: bold;
-      border-bottom: 2px solid var(--accent);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-      opacity: 0.6;
+    .form-group input:focus ~ label,
+    .form-group input:not(:placeholder-shown) ~ label,
+    .form-group textarea:focus ~ label,
+    .form-group textarea:not(:placeholder-shown) ~ label {
+      top: -0.6rem;
+      left: 0.8rem;
+      font-size: 0.8rem;
+      background: var(--white);
+      padding: 0 0.4rem;
+      color: var(--primary);
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
   <!-- NAVIGATION -->
-  <header class="main-header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">FARO<span class="logo-accent">ESTUDIO</span></a>
-      
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html" class="nav-link">Inicio</a></li>
-          <li><a href="ueber-uns.html" class="nav-link">El Estudio</a></li>
-          <li><a href="leistungen.html" class="nav-link">Servicios</a></li>
-          <li><a href="kontakt.html" class="nav-link btn-nav">Contacto</a></li>
-        </ul>
+  <header class="site-header">
+    <div class="nav-container">
+      <nav class="desktop-nav">
+        <div class="nav-left">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="ueber-uns.html" class="nav-link">El Estudio</a>
+        </div>
+        <div class="nav-center">
+          <a href="index.html" class="brand-logo">Agencia Faro</a>
+        </div>
+        <div class="nav-right">
+          <a href="leistungen.html" class="nav-link">Servicios</a>
+          <a href="kontakt.html" class="nav-link">Contacto</a>
+        </div>
+      </nav>
+      <div class="mobile-header">
+        <a href="index.html" class="brand-logo mobile">Agencia Faro</a>
+        <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('active'); document.querySelector('.mobile-menu').classList.toggle('active');">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu">
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="ueber-uns.html">El Estudio</a>
+        <a href="leistungen.html">Servicios</a>
+        <a href="kontakt.html">Contacto</a>
+        <a href="impressum.html" class="legal-link">Aviso Legal</a>
       </nav>
     </div>
   </header>
 
   <!-- MAIN CONTENT -->
-  <section class="section-wrapper">
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Contáctenos</h2>
-        <div class="title-bar"></div>
-        <p class="section-subtitle">Esperamos su mensaje.</p>
+        <h2 class="section-title">Estamos aquí para ti</h2>
+        <p class="section-subtitle">¿Tiene preguntas? ¡Contáctenos!</p>
       </div>
-      <div class="cards-grid-2">
+      <div class="section-body cards-grid">
         <div>
           <form class="contact-form">
             <div class="form-group">
+              <input type="text" id="name" required placeholder=" ">
               <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" required placeholder="Tu nombre">
             </div>
             <div class="form-group">
+              <input type="email" id="email" required placeholder=" ">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="tu@email.com">
             </div>
             <div class="form-group">
-              <label for="phone">Teléfono</label>
-              <input type="tel" id="phone" name="phone" placeholder="Tu teléfono (opcional)">
+              <input type="tel" id="phone" placeholder=" ">
+              <label for="phone">Teléfono (opcional)</label>
             </div>
             <div class="form-group">
-              <label for="subject">Asunto</label>
-              <input type="text" id="subject" name="subject" required placeholder="Asunto">
+              <select id="subject" required>
+                <option value="" disabled selected>Asunto</option>
+                <option value="recording">Grabación</option>
+                <option value="mixing">Mezcla / Mastering</option>
+                <option value="other">Otro</option>
+              </select>
             </div>
             <div class="form-group">
+              <textarea id="message" rows="5" required placeholder=" "></textarea>
               <label for="message">Mensaje</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary submit-btn">Enviar</button>
+            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
           </form>
         </div>
         <div>
           <h3>Cómo contactarnos</h3>
-          <p>📍 Dirección: Passeig de Gràcia 12, 08007 Barcelona</p>
-          <p>📞 Teléfono: <a href="tel:">No disponible</a></p>
-          <p>📧 Email: <a href="mailto:info@agencia-faro-estudio.com">info@agencia-faro-estudio.com</a></p>
-          <p>🕐 Horario: Lunes a Viernes, 9:00 - 18:00</p>
+          <p>📍 Passeig de Gràcia 12, 08007 Barcelona</p>
+          <p>📞 <a href="tel:+34933123456">+34 933 123 456</a></p>
+          <p>📧 <a href="mailto:info@agencia-faro-estudio.com">info@agencia-faro-estudio.com</a></p>
+          <p>🕐 Lunes a Viernes: 9:00 - 18:00</p>
           <h4>Anfahrtsbeschreibung</h4>
-          <p>Estamos ubicados en el corazón de Barcelona, accesibles desde cualquier punto de la ciudad.</p>
-          <h4>Parkmöglichkeiten</h4>
-          <p>Hay aparcamiento disponible en las cercanías.</p>
-          <h4>ÖPNV-Anbindung</h4>
-          <p>Fácil acceso mediante transporte público, con paradas de metro y autobús cercanas.</p>
+          <p>Estamos ubicados en el corazón de Barcelona, fácilmente accesible en coche y transporte público. Hay aparcamiento disponible en las cercanías y varias líneas de autobús y metro que paran cerca de nuestro estudio.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="main-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">FARO<span class="text-accent">ESTUDIO</span></div>
-        <p class="footer-desc">Producción musical de alto nivel para artistas que buscan excelencia sonora.</p>
-        <p class="footer-brand-name">Agencia Faro Estudio Música</p>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">Agencia Faro Estudio Música</div>
+      <nav class="footer-nav">
+        <a href="index.html">Inicio</a>
+        <a href="ueber-uns.html">El Estudio</a>
+        <a href="leistungen.html">Servicios</a>
+        <a href="kontakt.html">Contacto</a>
+      </nav>
+      <div class="footer-contact">
+        <a href="mailto:info@agencia-faro-estudio.com" class="email-link">info@agencia-faro-estudio.com</a>
       </div>
-      
-      <div class="footer-links">
-        <h3>Navegación</h3>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="ueber-uns.html">Sobre Nosotros</a></li>
-          <li><a href="leistungen.html">Servicios</a></li>
-          <li><a href="kontakt.html">Contacto</a></li>
-        </ul>
-      </div>
-
       <div class="footer-legal">
-        <h3>Legal & Contacto</h3>
-        <ul>
-          <li><a href="impressum.html">Aviso Legal</a></li>
-          <li><a href="mailto:info@agencia-faro-estudio.com" class="email-link">info@agencia-faro-estudio.com</a></li>
-        </ul>
+        <p>&copy; 2023 Agencia Faro Estudio Música. Todos los derechos reservados.</p>
+        <a href="impressum.html">Aviso Legal</a>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2023 Agencia Faro Estudio Música. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>

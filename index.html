@@ -7,64 +7,79 @@
   <style>
 /* === INJECTED BY CSS-GUARD === */
 :root {
-  --primary: #1d4ed8;
-  --secondary: #3b82f6;
-  --accent: #10b981;
-  --background: #eff6ff;
-  --text: #1e3a8a;
-  --font-heading: 'Raleway', sans-serif;
-  --font-body: 'Nunito', sans-serif;
-  --radius: 20px;
-  --shadow-card: 0 10px 40px rgba(0,0,0,0.1);
-  --shadow-hover: 0 20px 60px rgba(29, 78, 216, 0.2);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Colors */
+  --primary: #4338ca;
+  --primary-rgb: 67, 56, 202;
+  --secondary: #6366f1;
+  --accent: #84cc16;
+  --bg-color: #eef2ff;
+  --text-color: #312e81;
+  --white: #ffffff;
+  
+  /* Fonts */
+  --font-heading: 'Abril Fatface', cursive;
+  --font-body: 'Lato', sans-serif;
+  
+  /* Spacing & Layout */
+  --container-width: 1200px;
+  --radius: 12px;
+  --header-height: 90px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 6px -1px rgba(67, 56, 202, 0.1);
+  --shadow-card: 0 10px 40px rgba(0,0,0,0.08);
+  --shadow-hover: 0 20px 50px rgba(67, 56, 202, 0.15);
+  --glow: 0 0 20px rgba(67, 56, 202, 0.4);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap');
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: var(--font-body);
-  background-color: var(--background);
-  color: var(--text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 400;
+  line-height: 1.1;
   margin-bottom: 1rem;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: var(--transition-fast);
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
+/* Utility Classes */
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Grid Utility Classes (Required) */
+/* Grid Classes (REQUIRED) */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -83,41 +98,34 @@ img {
   gap: 1.5rem;
 }
 
-/* Global Button Styles */
+/* Button Base */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 2.5rem;
-  border-radius: 50px;
+  font-family: var(--font-body);
   font-weight: 700;
-  font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 1px;
-  cursor: pointer;
-  transition: var(--transition);
+  border-radius: 50px;
   border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  font-size: 0.9rem;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(67, 56, 202, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(29, 78, 216, 0.6);
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  box-shadow: var(--glow);
 }
 
 @keyframes fadeIn {
@@ -130,10 +138,21 @@ img {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes menuSlide {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* Cards Grid - Fallback */
@@ -159,293 +178,230 @@ img {
 </style>
 </head>
 <body>
-  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
-  <header class="main-header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">FARO<span class="logo-accent">ESTUDIO</span></a>
-      
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html" class="nav-link">Inicio</a></li>
-          <li><a href="ueber-uns.html" class="nav-link">El Estudio</a></li>
-          <li><a href="leistungen.html" class="nav-link">Servicios</a></li>
-          <li><a href="kontakt.html" class="nav-link btn-nav">Contacto</a></li>
-        </ul>
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="nav-container">
+      <nav class="desktop-nav">
+        <div class="nav-left">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="ueber-uns.html" class="nav-link">El Estudio</a>
+        </div>
+        
+        <div class="nav-center">
+          <a href="index.html" class="brand-logo">Agencia Faro</a>
+        </div>
+        
+        <div class="nav-right">
+          <a href="leistungen.html" class="nav-link">Servicios</a>
+          <a href="kontakt.html" class="nav-link">Contacto</a>
+        </div>
+      </nav>
+
+      <div class="mobile-header">
+        <a href="index.html" class="brand-logo mobile">Agencia Faro</a>
+        <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('active'); document.querySelector('.mobile-menu').classList.toggle('active');">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="ueber-uns.html">El Estudio</a>
+        <a href="leistungen.html">Servicios</a>
+        <a href="kontakt.html">Contacto</a>
+        <a href="impressum.html" class="legal-link">Aviso Legal</a>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- HERO SECTION -->
   <section class="hero-section">
-    <div class="hero-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
-    
-    <div class="container hero-content">
-      <h1 class="hero-title">Innovación y Experiencia</h1>
-      <p class="hero-subtitle">Cada proyecto merece nuestra total atención. Compruébelo usted mismo.</p>
-      <a href="kontakt.html" class="btn btn-primary hero-btn">Solicitar ahora</a>
-    </div>
-  </section>
-
-  <section class="section-wrapper">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Sus Ventajas</h2>
-        <div class="title-bar"></div>
-        <p class="section-subtitle">Buenas razones para elegirnos.</p>
-      </div>
-      <div class="section-content">
-        <div class="cards-grid">
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🚀</span>
-            </div>
-            <h3 class="card-title">Calidad Superior</h3>
-            <p class="card-desc">Ofrecemos una calidad de sonido inigualable para todos nuestros proyectos.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎵</span>
-            </div>
-            <h3 class="card-title">Experiencia Musical</h3>
-            <p class="card-desc">Nuestro equipo cuenta con años de experiencia en la industria musical.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎚️</span>
-            </div>
-            <h3 class="card-title">Equipamiento Avanzado</h3>
-            <p class="card-desc">Utilizamos tecnología de punta para garantizar los mejores resultados.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎤</span>
-            </div>
-            <h3 class="card-title">Atención Personalizada</h3>
-            <p class="card-desc">Cada cliente recibe un trato único y adaptado a sus necesidades.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🔊</span>
-            </div>
-            <h3 class="card-title">Variedad de Servicios</h3>
-            <p class="card-desc">Ofrecemos una amplia gama de servicios para cubrir todas sus necesidades musicales.</p>
-          </article>
-        </div>
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Bienvenidos a Agencia Faro</h1>
+      <p class="hero-subtitle">Desde hace años somos su socio de confianza. La calidad y la satisfacción del cliente son nuestra prioridad.</p>
+      <div class="hero-cta-wrapper">
+        <a href="kontakt.html" class="btn btn-primary">Más información</a>
       </div>
     </div>
   </section>
 
-  <section class="section-wrapper">
+  <!-- MAIN CONTENT -->
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Nuestro Proceso</h2>
-        <div class="title-bar"></div>
-        <p class="section-subtitle">Siempre sabrá en qué punto del proceso se encuentra.</p>
+        <p class="section-subtitle">Siempre sabe en qué punto estamos.</p>
       </div>
-      <div class="section-content">
-        <div class="cards-grid-2">
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">📝</span>
-            </div>
+      <div class="section-body">
+        <div class="cards-grid">
+          <article class="feature-card">
+            <div class="icon-wrapper">🚗</div>
             <h3 class="card-title">Planificación</h3>
-            <p class="card-desc">Trabajamos juntos para planificar cada detalle de su proyecto.</p>
+            <p class="card-description">Nos aseguramos de que cada proyecto esté bien planificado desde el principio.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎛️</span>
-            </div>
-            <h3 class="card-title">Producción</h3>
-            <p class="card-desc">Nuestro equipo se encarga de la producción con la máxima calidad.</p>
+          <article class="feature-card">
+            <div class="icon-wrapper">🔋</div>
+            <h3 class="card-title">Ejecución</h3>
+            <p class="card-description">Nuestro equipo trabaja diligentemente para ejecutar cada paso con precisión.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🔍</span>
-            </div>
-            <h3 class="card-title">Revisión</h3>
-            <p class="card-desc">Revisamos cada detalle para asegurar la perfección.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">✅</span>
-            </div>
+          <article class="feature-card">
+            <div class="icon-wrapper">🛠️</div>
             <h3 class="card-title">Entrega</h3>
-            <p class="card-desc">Entregamos el producto final listo para su lanzamiento.</p>
+            <p class="card-description">Entregamos resultados de alta calidad que superan sus expectativas.</p>
           </article>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-wrapper">
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Contáctenos</h2>
-        <div class="title-bar"></div>
-        <p class="section-subtitle">Juntos encontraremos la mejor solución.</p>
+        <h2 class="section-title">Lo que ofrecemos</h2>
+        <p class="section-subtitle">Competencia en todas las áreas.</p>
       </div>
-      <div class="section-content">
-        <a href="kontakt.html" class="btn btn-primary">Contáctenos ahora</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-wrapper">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Nuestro Oferta</h2>
-        <div class="title-bar"></div>
-        <p class="section-subtitle">Soluciones integrales para sus necesidades.</p>
-      </div>
-      <div class="section-content">
+      <div class="section-body">
         <div class="cards-grid-2">
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎧</span>
-            </div>
+          <article class="feature-card">
+            <div class="icon-wrapper">🎵</div>
             <h3 class="card-title">Grabación</h3>
-            <p class="card-desc">Ofrecemos servicios de grabación de alta calidad para todos los géneros musicales.</p>
+            <p class="card-description">Ofrecemos servicios de grabación de alta calidad para todos los géneros musicales.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎼</span>
-            </div>
+          <article class="feature-card">
+            <div class="icon-wrapper">🎚️</div>
             <h3 class="card-title">Mezcla</h3>
-            <p class="card-desc">Nuestro equipo de mezcla garantiza un sonido equilibrado y profesional.</p>
+            <p class="card-description">Nuestros expertos en mezcla garantizan un sonido equilibrado y profesional.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">📀</span>
-            </div>
+          <article class="feature-card">
+            <div class="icon-wrapper">🎧</div>
             <h3 class="card-title">Masterización</h3>
-            <p class="card-desc">Llevamos su música al siguiente nivel con nuestros servicios de masterización.</p>
+            <p class="card-description">Llevamos su música al siguiente nivel con técnicas avanzadas de masterización.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">📡</span>
-            </div>
-            <h3 class="card-title">Distribución</h3>
-            <p class="card-desc">Ayudamos a distribuir su música en todas las plataformas digitales.</p>
+          <article class="feature-card">
+            <div class="icon-wrapper">📀</div>
+            <h3 class="card-title">Producción</h3>
+            <p class="card-description">Desde la idea inicial hasta el producto final, lo acompañamos en todo el proceso creativo.</p>
           </article>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-wrapper">
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Nuestra Empresa</h2>
-        <div class="title-bar"></div>
+        <h2 class="section-title">Sus Ventajas</h2>
+        <p class="section-subtitle">Buenas razones para elegirnos.</p>
+      </div>
+      <div class="section-body">
+        <div class="cards-grid">
+          <article class="feature-card">
+            <div class="icon-wrapper">📞</div>
+            <h3 class="card-title">Comunicación</h3>
+            <p class="card-description">Mantenemos una comunicación clara y constante durante todo el proyecto.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon-wrapper">📧</div>
+            <h3 class="card-title">Soporte</h3>
+            <p class="card-description">Nuestro equipo está disponible para resolver cualquier duda o problema que pueda surgir.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon-wrapper">📍</div>
+            <h3 class="card-title">Ubicación</h3>
+            <p class="card-description">Estamos ubicados en el corazón de Barcelona, accesibles para todos nuestros clientes.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Sobre Nosotros</h2>
         <p class="section-subtitle">Conózcanos mejor.</p>
       </div>
-      <div class="section-content">
-        <p>Agencia Faro Estudio Música es un estudio de grabación dedicado a ofrecer servicios de producción musical de alta calidad. Nuestro equipo está compuesto por profesionales apasionados que se esfuerzan por ofrecer lo mejor en cada proyecto.</p>
+      <div class="section-body">
+        <p>Agencia Faro Estudio Música es un estudio dedicado a ofrecer servicios de grabación, mezcla y masterización de alta calidad. Nuestro equipo de profesionales está comprometido con la excelencia y la satisfacción del cliente.</p>
       </div>
     </div>
   </section>
 
-  <section class="section-wrapper">
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Su Contacto</h2>
-        <div class="title-bar"></div>
         <p class="section-subtitle">Personal calificado para su éxito.</p>
       </div>
-      <div class="section-content">
-        <div class="cards-grid-2">
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">👨‍🎤</span>
-            </div>
-            <h3 class="card-title">Productor</h3>
-            <p class="card-desc">Nuestro productor principal tiene más de 20 años de experiencia en la industria.</p>
+      <div class="section-body">
+        <div class="cards-grid">
+          <article class="feature-card">
+            <div class="icon-wrapper">👨‍🎤</div>
+            <h3 class="card-title">Raúl González</h3>
+            <p class="card-description">Fundador y director del estudio, con más de 20 años de experiencia en la industria musical.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">👩‍🎨</span>
-            </div>
-            <h3 class="card-title">Ingeniero de Sonido</h3>
-            <p class="card-desc">Especialista en mezcla y masterización, asegurando la mejor calidad de sonido.</p>
+          <article class="feature-card">
+            <div class="icon-wrapper">👩‍🎤</div>
+            <h3 class="card-title">María López</h3>
+            <p class="card-description">Ingeniera de sonido especializada en mezcla y masterización.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎹</span>
-            </div>
-            <h3 class="card-title">Músico de Sesión</h3>
-            <p class="card-desc">Colaboramos con músicos talentosos para enriquecer sus producciones.</p>
+          <article class="feature-card">
+            <div class="icon-wrapper">👨‍💻</div>
+            <h3 class="card-title">Carlos Pérez</h3>
+            <p class="card-description">Productor musical con un enfoque innovador y creativo.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🎸</span>
-            </div>
-            <h3 class="card-title">Guitarrista</h3>
-            <p class="card-desc">Nuestro guitarrista ofrece riffs y solos que elevan cualquier canción.</p>
+          <article class="feature-card">
+            <div class="icon-wrapper">👩‍💻</div>
+            <h3 class="card-title">Laura Martínez</h3>
+            <p class="card-description">Especialista en marketing musical y promoción de artistas.</p>
           </article>
-          <article class="service-card">
-            <div class="icon-wrapper">
-              <span class="card-icon">🥁</span>
-            </div>
-            <h3 class="card-title">Baterista</h3>
-            <p class="card-desc">Con ritmos precisos y creativos, nuestro baterista es una pieza clave.</p>
+          <article class="feature-card">
+            <div class="icon-wrapper">👨‍🎨</div>
+            <h3 class="card-title">Javier Torres</h3>
+            <p class="card-description">Diseñador gráfico encargado de la imagen y branding del estudio.</p>
           </article>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-wrapper">
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">¿Listo para empezar?</h2>
-        <div class="title-bar"></div>
+        <h2 class="section-title">Hablemos</h2>
+        <p class="section-subtitle">Estamos ansiosos por recibir su consulta.</p>
       </div>
-      <div class="section-content">
-        <a href="kontakt.html" class="btn btn-primary">Solicitar ahora</a>
+      <div class="section-body">
+        <a href="kontakt.html" class="btn btn-primary">Contáctenos</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (PFLICHT - von unten kopieren) -->
-  <footer class="main-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">FARO<span class="text-accent">ESTUDIO</span></div>
-        <p class="footer-desc">Producción musical de alto nivel para artistas que buscan excelencia sonora.</p>
-        <p class="footer-brand-name">Agencia Faro Estudio Música</p>
-      </div>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">Agencia Faro Estudio Música</div>
       
-      <div class="footer-links">
-        <h3>Navegación</h3>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="ueber-uns.html">Sobre Nosotros</a></li>
-          <li><a href="leistungen.html">Servicios</a></li>
-          <li><a href="kontakt.html">Contacto</a></li>
-        </ul>
+      <nav class="footer-nav">
+        <a href="index.html">Inicio</a>
+        <a href="ueber-uns.html">El Estudio</a>
+        <a href="leistungen.html">Servicios</a>
+        <a href="kontakt.html">Contacto</a>
+      </nav>
+
+      <div class="footer-contact">
+        <a href="mailto:info@agencia-faro-estudio.com" class="email-link">info@agencia-faro-estudio.com</a>
       </div>
 
       <div class="footer-legal">
-        <h3>Legal & Contacto</h3>
-        <ul>
-          <li><a href="impressum.html">Aviso Legal</a></li>
-          <li><a href="mailto:info@agencia-faro-estudio.com" class="email-link">info@agencia-faro-estudio.com</a></li>
-        </ul>
+        <p>&copy; 2023 Agencia Faro Estudio Música. Todos los derechos reservados.</p>
+        <a href="impressum.html">Aviso Legal</a>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2023 Agencia Faro Estudio Música. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>
